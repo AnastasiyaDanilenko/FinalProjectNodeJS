@@ -1,12 +1,19 @@
-Projecet created by Anastasiya Danilenko.
+Final Project Node.Js created by Anastasiya Danilenko.
 
-Node project with the following parts:
-1) Gets a new person from forme, and saves it to a json file (as an array of all the user)
-2) The new user needs to be valid. the validation rules are:
-	age - number (0-120)
-	name - string (3-15 chars) - Must be unique
-	isMale - boolean
-	country - string - must to be one of the values in this list.
-3) Get request handler. Returns all the users from the file.
+Save data:
+'data/jsonarrusers.json'
 
+Function Lookup Users: 
+fs.readFile('data/jsonarrusers.json', 'utf8', function (err, data)
+
+Print a list of users:
+app.get('/list_user', function(req, res, next)
+
+Start page:
+app.get('/', function(req, res, next){
+  res.sendFile(__dirname+'/index.html');
+});
+
+Run server:
+app.listen(process.env.PORT || 4578);
 

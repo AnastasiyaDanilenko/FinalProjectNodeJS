@@ -24,12 +24,16 @@
       
      </script>
 
-    <style>
-      body {  background: #66662c;  }
-    </style>
+<style>
+  p {
+      border: 1px solid powderblue;
+      padding: 30px;
+  }
+  </style>
 </head>
 <body onload="setCountry()">  
-    <br/><br/> 
+    <br/><h1 style="text-align:center;">Fill in the user data</h1><br/> 
+    
   <form action="https://finalprojectnodejs.herokuapp.com/list_user" method="post" >
     <div class="form-group row" >
       <label for="inputName" class="col-sm-2 col-form-label" align ="center">Name</label>
@@ -60,7 +64,7 @@
 
     <fieldset class="form-group">
       <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0" align ="center" align ="center">Gender</legend>
+        <legend class="col-form-label col-sm-2 pt-0"  align ="center">Gender</legend>
         <div class="col-sm-10">
           <div class="form-check">
             <input class="form-check-input" type="radio" name="gridRadiosGender" id="gridRadios1" value="male" checked>

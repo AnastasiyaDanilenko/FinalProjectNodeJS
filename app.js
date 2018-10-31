@@ -6,17 +6,16 @@ var fs = require('fs');
 app.set('view engine', 'ejs');
 var fileName = 'data/jsonarrusers.json';
 
-if (!fs.existsSync("./data")) { // Can't write if(!fs.exists("./files")) because will return true all the time because it is async and thus won't wait till the check complete and will alwasy enter the if.
-	fs.mkdirSync("./data"); // Can write fs.mkdir("./files"); but won't be good because it is async, so if file will be written before directory is created - it will crash.
+if (!fs.existsSync("./data")) { 
+	fs.mkdirSync("./data"); 
 }
 
-//Note that in version 4 of express, express.bodyParser() was
-//deprecated in favor of a separate 'body-parser' module.
+
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.post('/list_user', function(req, res) {
   if(req.body.age=="" || req.body.name==""){
-    var reply ='<h1 align ="center"><strong>Name or age is emty. Please enter all data.<strong></h1>';
+    var reply ='<h1 align ="center"><strong>Name or age is empty. Please enter all data.<strong></h1>';
      res.send(reply); 
      return 0;
   }
@@ -71,11 +70,11 @@ app.get('/list_user', function(req, res, next){
        answer='<ul class="list-group list-group-flush"> <strong>';
        arreyUsers.forEach( function(user) {
           console.log("*** ");
-          answer += "<li class='list-group-item'> Name: " + user.name+"</p> ";
+          answer += "<ol> Name: " + user.name+"</p> ";
           answer += "Age: " + user.age+", ";
           answer += "Gender: " + user.isMale+", "; 
           answer += "Country: " + user.country;
-          answer += '</li> <hr class="my-6">';
+          answer += '</ol> <hr class="my-6">';
          }); 
          answer +="</strong></ul>";
          res.send(""+answer);
